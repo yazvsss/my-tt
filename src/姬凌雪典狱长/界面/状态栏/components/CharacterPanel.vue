@@ -49,25 +49,26 @@
     <!-- 身体状态网格 -->
     <div class="body-grid">
       <div class="body-cell">
-        <div class="body-cell-label"><span>口腔</span></div>
+        <div class="body-cell-label"><span class="body-icon">👄</span><span>口腔</span></div>
         <div class="body-cell-content">{{ store.data.姬凌雪.口腔 }}</div>
       </div>
       <div class="body-cell">
-        <div class="body-cell-label"><span>胸部</span></div>
+        <div class="body-cell-label"><span class="body-icon">🍒</span><span>胸部</span></div>
         <div class="body-cell-content">{{ store.data.姬凌雪.胸部 }}</div>
       </div>
       <div class="body-cell">
-        <div class="body-cell-label"><span>小穴</span></div>
+        <div class="body-cell-label"><span class="body-icon">🌸</span><span>小穴</span></div>
         <div class="body-cell-content">{{ store.data.姬凌雪.小穴 }}</div>
       </div>
       <div class="body-cell">
-        <div class="body-cell-label"><span>后庭</span></div>
+        <div class="body-cell-label"><span class="body-icon">🍑</span><span>后庭</span></div>
         <div class="body-cell-content">{{ store.data.姬凌雪.后庭 }}</div>
       </div>
       <div class="body-cell body-cell-wide">
         <div class="body-cell-label">
+          <span class="body-icon">🥛</span>
           <span>子宫精液量</span>
-          <span class="semen-value">{{ store.data.姬凌雪.子宫精液量 }}ml</span>
+          <span class="semen-value">{{ semenDisplay }}ml</span>
         </div>
         <div class="semen-bar">
           <div
@@ -85,9 +86,7 @@
         </div>
       </div>
       <div class="body-cell body-cell-wide">
-        <div class="body-cell-label">
-          <span>是否怀孕</span>
-        </div>
+        <div class="body-cell-label"><span class="body-icon">🤰</span><span>是否怀孕</span></div>
         <div class="body-cell-content">
           <span
             class="pregnancy-tag"
@@ -103,6 +102,12 @@
 import { useDataStore } from '../store';
 
 const store = useDataStore();
+
+const semenDisplay = computed(() => {
+  const v = store.data.姬凌雪.子宫精液量;
+  if (v <= 0) return '0';
+  return (Math.round(v * 10) / 10).toFixed(1);
+});
 
 const desireColor = computed(() => {
   const v = store.data.姬凌雪.欲望值;
@@ -264,9 +269,12 @@ const isPregnant = computed(() => {
 }
 
 .body-cell-label::before {
-  content: '◆';
-  color: var(--c-accent);
-  font-size: 0.6rem;
+  content: '';
+}
+
+.body-icon {
+  font-size: 0.82rem;
+  line-height: 1;
 }
 
 .body-cell-content {

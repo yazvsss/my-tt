@@ -1,12 +1,19 @@
 <template>
   <div class="header-bar">
-    <div class="header-row">
+    <div class="header-row header-row-date">
       <div class="header-cell header-date">
         <span class="cell-icon">▦</span>
         <span class="cell-label">日期</span>
         <span class="cell-value">{{ store.data.世界.日期 }}</span>
       </div>
+    </div>
 
+    <div class="header-row header-row-time-week">
+      <div class="header-cell header-time">
+        <span class="cell-icon">◐</span>
+        <span class="cell-label">时间</span>
+        <span class="cell-value">{{ store.data.世界.当前时间 }}</span>
+      </div>
       <div class="header-cell header-weekday">
         <span class="cell-icon">▣</span>
         <span class="cell-label">星期</span>
@@ -14,13 +21,7 @@
       </div>
     </div>
 
-    <div class="header-row">
-      <div class="header-cell header-time">
-        <span class="cell-icon">◐</span>
-        <span class="cell-label">时间</span>
-        <span class="cell-value">{{ store.data.世界.当前时间 }}</span>
-      </div>
-
+    <div class="header-row header-row-location">
       <div class="header-cell header-location">
         <span class="cell-icon">◈</span>
         <span class="cell-label">地点</span>
@@ -47,11 +48,14 @@ const store = useDataStore();
 
 .header-row {
   display: flex;
-  flex: 1;
 }
 
-.header-row:first-child {
-  border-bottom: 1px solid var(--c-border);
+.header-row + .header-row {
+  border-top: 1px solid var(--c-border);
+}
+
+.header-row-time-week {
+  flex: 1;
 }
 
 .header-cell {
@@ -69,6 +73,19 @@ const store = useDataStore();
 
 .header-cell:last-child {
   border-right: none;
+}
+
+.header-date {
+  justify-content: center;
+}
+
+.header-time,
+.header-weekday {
+  justify-content: center;
+}
+
+.header-location {
+  justify-content: center;
 }
 
 .cell-icon {
@@ -91,20 +108,5 @@ const store = useDataStore();
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-@media (max-width: 600px) {
-  .header-row {
-    flex-direction: column;
-  }
-
-  .header-cell {
-    border-right: none;
-    border-bottom: 1px solid var(--c-border);
-  }
-
-  .header-cell:last-child {
-    border-bottom: none;
-  }
 }
 </style>
