@@ -53,7 +53,7 @@
           "type": "string"
         },
         "子宫精液量": {
-          "type": "string"
+          "type": "number"
         },
         "是否怀孕": {
           "type": "string"
