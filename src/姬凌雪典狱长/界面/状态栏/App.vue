@@ -10,7 +10,7 @@
     <div class="panels-container">
       <CollapsibleSection
         v-model="char_open"
-        title="典狱长状态"
+        title="姬凌雪状态"
         icon="⛓"
         accent="accent"
       >

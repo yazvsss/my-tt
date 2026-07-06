@@ -1,27 +1,31 @@
 <template>
   <div class="header-bar">
-    <div class="header-cell header-date">
-      <span class="cell-icon">▦</span>
-      <span class="cell-label">日期</span>
-      <span class="cell-value">{{ store.data.世界.日期 }}</span>
+    <div class="header-row">
+      <div class="header-cell header-date">
+        <span class="cell-icon">▦</span>
+        <span class="cell-label">日期</span>
+        <span class="cell-value">{{ store.data.世界.日期 }}</span>
+      </div>
+
+      <div class="header-cell header-weekday">
+        <span class="cell-icon">▣</span>
+        <span class="cell-label">星期</span>
+        <span class="cell-value">{{ store.data.世界.星期 }}</span>
+      </div>
     </div>
 
-    <div class="header-cell header-weekday">
-      <span class="cell-icon">▣</span>
-      <span class="cell-label">星期</span>
-      <span class="cell-value">{{ store.data.世界.星期 }}</span>
-    </div>
+    <div class="header-row">
+      <div class="header-cell header-time">
+        <span class="cell-icon">◐</span>
+        <span class="cell-label">时间</span>
+        <span class="cell-value">{{ store.data.世界.当前时间 }}</span>
+      </div>
 
-    <div class="header-cell header-time">
-      <span class="cell-icon">◐</span>
-      <span class="cell-label">时间</span>
-      <span class="cell-value">{{ store.data.世界.当前时间 }}</span>
-    </div>
-
-    <div class="header-cell header-location">
-      <span class="cell-icon">◈</span>
-      <span class="cell-label">地点</span>
-      <span class="cell-value">{{ store.data.世界.地点 }}</span>
+      <div class="header-cell header-location">
+        <span class="cell-icon">◈</span>
+        <span class="cell-label">地点</span>
+        <span class="cell-value">{{ store.data.世界.地点 }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -34,23 +38,33 @@ const store = useDataStore();
 
 <style lang="scss" scoped>
 .header-bar {
-  display: grid;
-  grid-template-columns: 1fr auto auto 1.5fr;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(180deg, var(--c-surface-raised) 0%, var(--c-surface) 100%);
   border-bottom: 2px solid var(--c-border);
-  padding: 0;
   flex-shrink: 0;
+}
+
+.header-row {
+  display: flex;
+  flex: 1;
+}
+
+.header-row:first-child {
+  border-bottom: 1px solid var(--c-border);
 }
 
 .header-cell {
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-right: 1px solid var(--c-border);
   font-size: 0.82rem;
   overflow: hidden;
   white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .header-cell:last-child {
@@ -76,38 +90,21 @@ const store = useDataStore();
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.header-location {
-  justify-content: flex-start;
-}
-
-.header-time,
-.header-weekday {
-  justify-content: center;
+  min-width: 0;
 }
 
 @media (max-width: 600px) {
-  .header-bar {
-    grid-template-columns: 1fr 1fr;
+  .header-row {
+    flex-direction: column;
   }
 
   .header-cell {
-    border-right: 1px solid var(--c-border);
+    border-right: none;
     border-bottom: 1px solid var(--c-border);
   }
 
-  .header-cell:nth-child(2) {
-    border-right: none;
-  }
-
-  .header-cell:nth-child(3),
-  .header-cell:nth-child(4) {
+  .header-cell:last-child {
     border-bottom: none;
-  }
-
-  .header-cell:nth-child(3) {
-    border-right: 1px solid var(--c-border);
   }
 }
 </style>

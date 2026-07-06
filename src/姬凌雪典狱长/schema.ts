@@ -15,7 +15,7 @@ export const Schema = z.object({
     胸部: z.string(),
     小穴: z.string(),
     后庭: z.string(),
-    子宫精液量: z.string(),
+    子宫精液量: z.coerce.number().transform(v => _.clamp(v, 0, 100)),
     是否怀孕: z.string(),
   }),
 

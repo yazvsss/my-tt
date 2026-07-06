@@ -65,8 +65,24 @@
         <div class="body-cell-content">{{ store.data.姬凌雪.后庭 }}</div>
       </div>
       <div class="body-cell body-cell-wide">
-        <div class="body-cell-label"><span>子宫精液量</span></div>
-        <div class="body-cell-content">{{ store.data.姬凌雪.子宫精液量 }}</div>
+        <div class="body-cell-label">
+          <span>子宫精液量</span>
+          <span class="semen-value">{{ store.data.姬凌雪.子宫精液量 }}ml</span>
+        </div>
+        <div class="semen-bar">
+          <div
+            class="semen-fill"
+            :style="{ width: store.data.姬凌雪.子宫精液量 + '%' }"
+          ></div>
+          <div class="semen-tick semen-tick-25"></div>
+          <div class="semen-tick semen-tick-50"></div>
+          <div class="semen-tick semen-tick-75"></div>
+          <span class="semen-tick-label semen-tick-label-0">0</span>
+          <span class="semen-tick-label semen-tick-label-25">25</span>
+          <span class="semen-tick-label semen-tick-label-50">50</span>
+          <span class="semen-tick-label semen-tick-label-75">75</span>
+          <span class="semen-tick-label semen-tick-label-100">100ml</span>
+        </div>
       </div>
       <div class="body-cell body-cell-wide">
         <div class="body-cell-label">
@@ -273,6 +289,63 @@ const isPregnant = computed(() => {
   background: rgba(184, 52, 58, 0.1);
   font-weight: bold;
 }
+
+/* 子宫精液量动态条 */
+.semen-value {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: #e8e0d0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.semen-bar {
+  position: relative;
+  height: 14px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.semen-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #f5f0e8 0%, #e8dfd0 50%, #ddd4c4 100%);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 4px rgba(245, 240, 232, 0.3);
+}
+
+.semen-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--c-border);
+  opacity: 0.4;
+}
+
+.semen-tick-25 { left: 25%; }
+.semen-tick-50 { left: 50%; }
+.semen-tick-75 { left: 75%; }
+
+.semen-tick-label {
+  position: absolute;
+  bottom: -1px;
+  font-size: 0.55rem;
+  color: var(--c-text-dim);
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.semen-tick-label-0 { left: 2%; transform: translateX(0); }
+.semen-tick-label-25 { left: 25%; }
+.semen-tick-label-50 { left: 50%; }
+.semen-tick-label-75 { left: 75%; }
+.semen-tick-label-100 { left: 98%; transform: translateX(-100%); }
 
 @media (max-width: 600px) {
   .body-grid {
