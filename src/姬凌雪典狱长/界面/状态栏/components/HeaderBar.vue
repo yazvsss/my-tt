@@ -1,0 +1,113 @@
+<template>
+  <div class="header-bar">
+    <div class="header-cell header-date">
+      <span class="cell-icon">▦</span>
+      <span class="cell-label">日期</span>
+      <span class="cell-value">{{ store.data.世界.日期 }}</span>
+    </div>
+
+    <div class="header-cell header-weekday">
+      <span class="cell-icon">▣</span>
+      <span class="cell-label">星期</span>
+      <span class="cell-value">{{ store.data.世界.星期 }}</span>
+    </div>
+
+    <div class="header-cell header-time">
+      <span class="cell-icon">◐</span>
+      <span class="cell-label">时间</span>
+      <span class="cell-value">{{ store.data.世界.当前时间 }}</span>
+    </div>
+
+    <div class="header-cell header-location">
+      <span class="cell-icon">◈</span>
+      <span class="cell-label">地点</span>
+      <span class="cell-value">{{ store.data.世界.地点 }}</span>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useDataStore } from '../store';
+
+const store = useDataStore();
+</script>
+
+<style lang="scss" scoped>
+.header-bar {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1.5fr;
+  background: linear-gradient(180deg, var(--c-surface-raised) 0%, var(--c-surface) 100%);
+  border-bottom: 2px solid var(--c-border);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.header-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border-right: 1px solid var(--c-border);
+  font-size: 0.82rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.header-cell:last-child {
+  border-right: none;
+}
+
+.cell-icon {
+  color: var(--c-accent);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.cell-label {
+  color: var(--c-text-dim);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.cell-value {
+  color: var(--c-text);
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-location {
+  justify-content: flex-start;
+}
+
+.header-time,
+.header-weekday {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .header-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header-cell {
+    border-right: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  .header-cell:nth-child(2) {
+    border-right: none;
+  }
+
+  .header-cell:nth-child(3),
+  .header-cell:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .header-cell:nth-child(3) {
+    border-right: 1px solid var(--c-border);
+  }
+}
+</style>

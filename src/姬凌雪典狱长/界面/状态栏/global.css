@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 暗黑牢狱风格配色 - 功能语义命名 */
+  --c-bg: #0d0f12; /* 主背景：深黑铁色 */
+  --c-surface: #181b20; /* 面板背景：暗灰铁 */
+  --c-surface-raised: #232830; /* 凸起元素：钢铁灰 */
+  --c-border: #3a4150; /* 边框：铁栏灰 */
+  --c-border-strong: #5a6470; /* 强调边框 */
+  --c-text: #d4d8de; /* 主文字：浅灰白 */
+  --c-text-muted: #8b9199; /* 次要文字：灰 */
+  --c-text-dim: #5a6068; /* 暗淡文字 */
+  --c-accent: #c8862a; /* 强调色：铁门锈橙 */
+  --c-accent-glow: rgba(200, 134, 42, 0.15); /* 强调光晕 */
+  --c-danger: #b8343a; /* 危险：警戒红 */
+  --c-warning: #d97706; /* 警告：警示橙 */
+  --c-safe: #4a7a5a; /* 安全：牢稳绿 */
+  --c-extreme: #8b1a1a; /* 极端：暴动深红 */
+
+  /* 帮派标识色 - 对应卡内设定 */
+  --c-faction-tiger: #b8902a; /* 黑虎会：黄 */
+  --c-faction-polar: #3a6da8; /* 北极帮：蓝 */
+  --c-faction-cross: #3a8a5a; /* 南十字：绿 */
+  --c-faction-hammer: #c87a2a; /* 铁锤帮：橙 */
+  --c-faction-aryan: #b8b8b8; /* 雅利安兄弟会：白 */
+
+  /* 字体 */
+  --font-prison: 'Courier New', 'Microsoft YaHei', monospace;
+}

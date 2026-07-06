@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "世界": {
+      "type": "object",
+      "properties": {
+        "日期": {
+          "type": "string"
+        },
+        "星期": {
+          "type": "string"
+        },
+        "当前时间": {
+          "type": "string"
+        },
+        "地点": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "日期",
+        "星期",
+        "当前时间",
+        "地点"
+      ]
+    },
+    "姬凌雪": {
+      "type": "object",
+      "properties": {
+        "当前行动": {
+          "type": "string"
+        },
+        "内心想法": {
+          "type": "string"
+        },
+        "欲望值": {
+          "type": "number"
+        },
+        "穿着": {
+          "type": "string"
+        },
+        "口腔": {
+          "type": "string"
+        },
+        "胸部": {
+          "type": "string"
+        },
+        "小穴": {
+          "type": "string"
+        },
+        "后庭": {
+          "type": "string"
+        },
+        "子宫精液量": {
+          "type": "string"
+        },
+        "是否怀孕": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "当前行动",
+        "内心想法",
+        "欲望值",
+        "穿着",
+        "口腔",
+        "胸部",
+        "小穴",
+        "后庭",
+        "子宫精液量",
+        "是否怀孕"
+      ]
+    },
+    "监狱": {
+      "type": "object",
+      "properties": {
+        "监狱稳定度": {
+          "type": "number"
+        },
+        "上级压力度": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "监狱稳定度",
+        "上级压力度"
+      ]
+    },
+    "帮派": {
+      "type": "object",
+      "properties": {
+        "黑虎会忠诚度": {
+          "type": "number"
+        },
+        "北极帮忠诚度": {
+          "type": "number"
+        },
+        "南十字忠诚度": {
+          "type": "number"
+        },
+        "铁锤帮忠诚度": {
+          "type": "number"
+        },
+        "雅利安兄弟会忠诚度": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "黑虎会忠诚度",
+        "北极帮忠诚度",
+        "南十字忠诚度",
+        "铁锤帮忠诚度",
+        "雅利安兄弟会忠诚度"
+      ]
+    },
+    "黑石卡": {
+      "type": "object",
+      "properties": {
+        "持有者": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "持有者"
+      ]
+    }
+  },
+  "required": [
+    "世界",
+    "姬凌雪",
+    "监狱",
+    "帮派",
+    "黑石卡"
+  ]
+}
